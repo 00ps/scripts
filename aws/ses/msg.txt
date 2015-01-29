@@ -1,0 +1,7 @@
+dear recipient,
+
+this is the plain text version of the email.
+
+Best regards,
+
+sender
