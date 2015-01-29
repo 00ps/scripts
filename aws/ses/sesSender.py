@@ -24,13 +24,13 @@ subject = "This is a bulk email sent via SES"
 
 # plain text content of the mail:
 # reads msg.txt in the current directory
-file = open('msg.txt', 'r')
-txt = file.read()
+ft = open('msg.txt', 'r')
+txt = ft.read()
 
 # html content of the mail:
 # reads msg.html in the current directory
-file = open('msg.html', 'r')
-html = file.read()
+fh = open('msg.html', 'r')
+html = fh.read()
 
 # creates a boto connection using above credentials
 conn = boto.ses.connect_to_region(
@@ -39,10 +39,10 @@ conn = boto.ses.connect_to_region(
     aws_secret_access_key=secret_key)
 
 # read the list of recipients
-file = open('clientList.txt', 'r')
+rcptlist = open('clientList.txt', 'r')
 
 # loop over the list provided above
-for rcpt in file:
+for rcpt in rcptlist:
     # create a MIME message
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
